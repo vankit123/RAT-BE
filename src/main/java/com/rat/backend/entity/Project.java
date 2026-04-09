@@ -41,5 +41,8 @@ public class Project extends BaseEntity {
     private List<TestDataSet> testDataSets = new ArrayList<>();
 
     @OneToMany(mappedBy = "project")
+    private List<TestAsset> testAssets = new ArrayList<>();
+
+    @OneToMany(mappedBy = "project")
     private List<TestRun> testRuns = new ArrayList<>();
 }

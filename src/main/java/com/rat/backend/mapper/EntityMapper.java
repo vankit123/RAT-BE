@@ -1,6 +1,7 @@
 package com.rat.backend.mapper;
 
 import com.rat.backend.dto.response.ProjectResponse;
+import com.rat.backend.dto.response.TestAssetResponse;
 import com.rat.backend.dto.response.TestCaseDataSetResponse;
 import com.rat.backend.dto.response.TestCaseResponse;
 import com.rat.backend.dto.response.TestCaseStepResponse;
@@ -11,6 +12,7 @@ import com.rat.backend.dto.response.TestRunCaseResponse;
 import com.rat.backend.dto.response.TestRunResponse;
 import com.rat.backend.dto.response.TestRunStepResponse;
 import com.rat.backend.entity.Project;
+import com.rat.backend.entity.TestAsset;
 import com.rat.backend.entity.TestCase;
 import com.rat.backend.entity.TestCaseDataSet;
 import com.rat.backend.entity.TestCaseStep;
@@ -57,6 +59,12 @@ public final class EntityMapper {
         return new TestDataSetResponse(entity.getId(), entity.getProject().getId(), entity.getCode(), entity.getName(),
                 entity.getDescription(), entity.getDataJson(), entity.getExpectedJson(), entity.getStatus(),
                 entity.getCreatedAt(), entity.getUpdatedAt());
+    }
+
+    public static TestAssetResponse toResponse(TestAsset entity) {
+        return new TestAssetResponse(entity.getId(), entity.getProject().getId(), entity.getOriginalName(),
+                entity.getStoredName(), entity.getStoredPath(), entity.getMimeType(), entity.getSizeBytes(),
+                entity.getChecksum(), entity.getCreatedAt(), entity.getUpdatedAt());
     }
 
     public static TestCaseDataSetResponse toResponse(TestCaseDataSet entity) {
